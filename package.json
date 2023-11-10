@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
+    "json2csv": "^6.0.0-alpha.2",
     "node-gyp": "^10.0.1",
     "node-odbc": "^0.2.10",
     "odbc": "^2.4.8"

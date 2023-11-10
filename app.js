@@ -4,6 +4,8 @@ const odbc = require('odbc');
 // Load environment variables from .env
 require('dotenv').config()
 //require('dotenv').config({path: __dirname + '/.env'})
+var fs = require('fs');
+const json2csv = require('json2csv').parse;
 
 const connectionString = 'DRIVER={' + process.env.DRIVER + '};SERVER=' + process.env.SERVER + ';DATABASE=' + process.env.DATABASE + ';Username=' + process.env.USERNAME + ';Password=' + process.env.PASSWORD;
 
@@ -15,7 +17,7 @@ odbc.connect(connectionString, (error, connection) => {
   }
 
   // Execute a simple query
-    connection.query('select * from aviation.crew', (error, result) => {
+    connection.query(process.env.SQLQUERY, (error, result) => {
     if (error) {
       console.error('Error executing the query:', error);
       return;
